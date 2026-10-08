@@ -1,0 +1,3 @@
+bin/*.raw
+bin/*.log
+bin/report_*-dump/

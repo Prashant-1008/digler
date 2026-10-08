@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dfxml xmloutputversion="1.0">
+  <dfxml>
+    <metadata xmlns="http://www.forensicswiki.org/wiki/Category:Digital_Forensics_XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:type>Carve Report</dc:type>
+    </metadata>
+    <creator>
+      <package>digler</package>
+      <version>main-11fdfe6</version>
+      <execution_environment>
+        <os_sysname>windows</os_sysname>
+        <os_release>Windows</os_release>
+        <os_version>Microsoft Windows [Version 10.0.19045.6466]</os_version>
+        <host>DESKTOP-E36NJG6</host>
+        <arch>amd64</arch>
+        <uid>0</uid>
+        <start_time>2026-05-21T10:11:55Z</start_time>
+      </execution_environment>
+    </creator>
+    <source>
+      <image_filename>Investigation-2.raw</image_filename>
+      <sectorsize>512</sectorsize>
+      <image_size>536870912</image_size>
+    </source>
+  </dfxml>
+  <fileobject>
+    <filename>f144544.bmp</filename>
+    <filesize>1440054</filesize>
+    <byte_runs>
+      <byte_run offset="74006528" img_offset="74006528" len="1440054"></byte_run>
+    </byte_runs>
+  </fileobject>
+  <fileobject>
+    <filename>f149648.wav</filename>
+    <filesize>424644</filesize>
+    <byte_runs>
+      <byte_run offset="76619776" img_offset="76619776" len="424644"></byte_run>
+    </byte_runs>
+  </fileobject>
+  <fileobject>
+    <filename>f155784.wav</filename>
+    <filesize>6400</filesize>
+    <byte_runs>
+      <byte_run offset="79761408" img_offset="79761408" len="6400"></byte_run>
+    </byte_runs>
+  </fileobject>
+  <fileobject>
+    <filename>f430272.bmp</filename>
+    <filesize>1440054</filesize>
+    <byte_runs>
+      <byte_run offset="220299264" img_offset="220299264" len="1440054"></byte_run>
+    </byte_runs>
+  </fileobject>
+  <fileobject>
+    <filename>f780960.bmp</filename>
+    <filesize>1440054</filesize>
+    <byte_runs>
+      <byte_run offset="399851520" img_offset="399851520" len="1440054"></byte_run>
+    </byte_runs>
+  </fileobject>
+  <fileobject>
+    <filename>f791160.bmp</filename>
+    <filesize>1440054</filesize>
+    <byte_runs>
+      <byte_run offset="405073920" img_offset="405073920" len="1440054"></byte_run>
+    </byte_runs>
+  </fileobject>
+</dfxml>

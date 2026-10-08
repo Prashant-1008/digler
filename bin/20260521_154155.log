@@ -1,0 +1,13 @@
+[INFO] Starting scanning operation...
+[INFO] Source: 	D:\prashant\projects\digler\bin\Investigation-2.raw
+[INFO] File Types: 	mp3,wav,au,wma,jpeg,png,bmp,gif,pcx,tif,zip,rar,pdf,sqlite
+[INFO] No plugin loaded
+[INFO] Output Log: 	D:\prashant\projects\digler\bin\20260521_154155.log
+[INFO] Scanning for 25 signatures...
+[INFO] Scan completed!
+[INFO] Signatures found: 	879
+[INFO] Files found: 		6
+[INFO] Total data: 		512MB
+[INFO] Duration: 		00:00:03
+[INFO] Report saved to: 	D:\prashant\projects\digler\bin\report_20260521_154155.xml
+[INFO] Detailed scan log: 	D:\prashant\projects\digler\bin\20260521_154155.log

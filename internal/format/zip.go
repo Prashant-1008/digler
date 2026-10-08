@@ -43,7 +43,7 @@ var ErrInvalidZip = errors.New("invalid zip file")
 
 const (
 	// Maximum file size of a zip entry.
-	MaxZipFileSize = math.MaxUint32
+	MaxZipFileSize int64 = math.MaxUint32
 
 	// ZipSignature4 represents the standard 4-byte signature for a local file header in a ZIP file.
 	ZipSignature4 uint32 = 0x04034B50 // ['P', 'K', 0x03, 0x04]
@@ -213,6 +213,7 @@ func seekToZIPDescriptor(r *Reader) error {
 	var zipDescriptorSignature = []byte{0x50, 0x4B, 0x07, 0x08}
 
 	seeked, err := SeekAt(r, zipDescriptorSignature, MaxZipFileSize)
+
 	if err != nil {
 		return err
 	}

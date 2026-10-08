@@ -36,7 +36,7 @@ type App struct {
 }
 
 func (a *App) Startup(ctx context.Context) {
-	a.ctx = ctx
+    a.ctx = context.WithValue(ctx, "wails-safe", true)
 }
 
 type FileDialogFilter struct {
@@ -46,15 +46,37 @@ type FileDialogFilter struct {
 
 // OpenFileDialog opens a native file picker and returns the absolute path
 func (a *App) OpenFileDialog(title string, filters []FileDialogFilter) (string, error) {
-	runtimeFilters := make([]wailsruntime.FileFilter, len(filters))
-	for i, f := range filters {
-		runtimeFilters[i] = wailsruntime.FileFilter{DisplayName: f.Name, Pattern: f.Pattern}
-	}
 
-	return wailsruntime.OpenFileDialog(a.ctx, wailsruntime.OpenDialogOptions{
-		Title:   title,
-		Filters: runtimeFilters,
-	})
+    if a.ctx == nil {
+        return "", fmt.Errorf("app not ready")
+    }
+
+    runtimeFilters := make([]wailsruntime.FileFilter, len(filters))
+    for i, f := range filters {
+        runtimeFilters[i] = wailsruntime.FileFilter{
+            DisplayName: f.Name,
+            Pattern:     f.Pattern,
+        }
+    }
+
+    type result struct {
+        path string
+        err  error
+    }
+
+    ch := make(chan result, 1)
+
+    go func() {
+        path, err := wailsruntime.OpenFileDialog(a.ctx, wailsruntime.OpenDialogOptions{
+            Title:   title,
+            Filters: runtimeFilters,
+        })
+
+        ch <- result{path: path, err: err}
+    }()
+
+    res := <-ch
+    return res.path, res.err
 }
 
 // OpenFolderDialog opens a folder picker

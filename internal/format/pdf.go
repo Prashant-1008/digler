@@ -35,7 +35,8 @@ var (
 	pdfHeader = []byte("%PDF-")
 	eofMarker = []byte("%%EOF")
 
-	pdfMaxFileSize = 16 * 1024 * 1024 // 16MB
+	pdfMaxFileSize int64 = 16 * 1024 * 1024 // 16MB
+
 )
 
 // ScanPDF reads a byte stream from an io.Reader, identifies a potential PDF file,

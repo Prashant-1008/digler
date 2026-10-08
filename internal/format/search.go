@@ -40,7 +40,7 @@ import (
 //
 //	bool: True if the signature is found, false otherwise.
 //	error: An error if an I/O error occurs during reading, other than io.EOF.
-func SeekAt(r *Reader, sig []byte, n int) (bool, error) {
+func SeekAt(r *Reader, sig []byte, n int64) (bool, error) {
 	sigLen := len(sig)
 
 	// `pad` ensures that enough bytes are kept from the end of the previous buffer
@@ -49,8 +49,9 @@ func SeekAt(r *Reader, sig []byte, n int) (bool, error) {
 	pad := sigLen - 1
 	buf := make([]byte, pad+r.BufferSize())
 
-	offset := 0
+	offset := int64(0)
 	for offset < n {
+
 		// If `offset` is greater than 0, it means we've read in previous iterations.
 		// We copy the last `pad` bytes of the `buf` to the beginning. This is crucial
 		// for handling signatures that might be split across `peek` operations, ensuring
@@ -99,7 +100,8 @@ func SeekAt(r *Reader, sig []byte, n int) (bool, error) {
 			break
 		}
 
-		offset += m
+		offset += int64(m)
+
 
 		_, err = r.Discard(m)
 		if err != nil {

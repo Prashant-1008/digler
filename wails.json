@@ -8,8 +8,8 @@
     "frontend": {
         "dir": "frontend",
         "install": "npm install",
-        "build": "npm run build",
-        "bridge": ""
+        "dev": "npm run dev",
+        "build": "npm run build"
     },
     "outputfilename": "digler",
     "wailsjsdir": "frontend/src/",

@@ -66,7 +66,7 @@ func main() {
 	configAPI := api.NewConfigAPI(configStore)
 	scanAPI := api.NewScanAPI(scanHistoryStore)
 
-	app := &app.App{}
+	application := &app.App{}
 
 	err = wails.Run(&options.App{
 		Title:         AppName,
@@ -74,13 +74,13 @@ func main() {
 		Height:        Height,
 		DisableResize: true,
 		Assets:        assets,
-		OnStartup:     app.Startup,
+		OnStartup:     application.Startup,
 		OnShutdown: func(ctx context.Context) {
 			configStore.Close()
 			scanHistoryStore.Close()
 		},
 		Bind: []any{
-			app,
+			application,
 			sysAPI,
 			configAPI,
 			scanAPI,
